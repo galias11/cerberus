@@ -1,1 +1,6 @@
 django >=1.9, <2
+django-bootstrap3
+django-bootstrap4
+django-simple-history
+python-docx
+nlp_model_gen

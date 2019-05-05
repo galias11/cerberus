@@ -1,0 +1,15 @@
+.entidades{
+    margin-top: 5rem;
+}
+
+#botonera_entidades{
+    margin-left: 1rem;
+}
+
+@media only screen and (max-width: 950px) {
+    #botonera_entidades {
+        width: 100%;
+        margin-left:0;
+        margin-right:10rem;
+    }
+}
