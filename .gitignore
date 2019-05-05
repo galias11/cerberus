@@ -334,3 +334,6 @@ db.sqlite3
 
 # Documentos
 documentos
+
+# VirtualEnv
+venv
