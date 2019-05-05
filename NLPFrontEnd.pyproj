@@ -77,6 +77,7 @@
     <Folder Include="FrontEnd\static\FrontEnd\fonts\svgs\regular\" />
     <Folder Include="FrontEnd\static\FrontEnd\fonts\svgs\solid\" />
     <Folder Include="FrontEnd\static\FrontEnd\fonts\webfonts\" />
+    <Folder Include="FrontEnd\static\FrontEnd\images\" />
     <Folder Include="FrontEnd\static\FrontEnd\scripts\" />
     <Folder Include="FrontEnd\static\FrontEnd\scripts\my_scripts\" />
     <Folder Include="FrontEnd\templates\" />
@@ -1482,6 +1483,8 @@
     <Content Include="FrontEnd\static\FrontEnd\fonts\webfonts\fa-solid-900.ttf" />
     <Content Include="FrontEnd\static\FrontEnd\fonts\webfonts\fa-solid-900.woff" />
     <Content Include="FrontEnd\static\FrontEnd\fonts\webfonts\fa-solid-900.woff2" />
+    <Content Include="FrontEnd\static\FrontEnd\images\Cancerbero.png" />
+    <Content Include="FrontEnd\static\FrontEnd\images\wCancerbero.png" />
     <Content Include="FrontEnd\static\FrontEnd\scripts\my_scripts\buscador.js" />
     <Content Include="FrontEnd\static\FrontEnd\scripts\my_scripts\agregar_doc.js" />
     <Content Include="FrontEnd\static\FrontEnd\scripts\my_scripts\casos.js" />
@@ -1509,6 +1512,7 @@
     <Content Include="FrontEnd\templates\FrontEnd\resultados_inteligente.html" />
     <Content Include="FrontEnd\templates\FrontEnd\notas.html" />
     <Content Include="FrontEnd\templates\FrontEnd\resultados_caso.html" />
+    <Content Include="FrontEnd\templates\FrontEnd\resultados_inteligente_tokens.html" />
     <Content Include="FrontEnd\templates\FrontEnd\ver_notas.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
