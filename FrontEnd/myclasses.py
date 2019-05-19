@@ -7,7 +7,7 @@ nlp = NLPModelAdmin()
 sep_telefonos = r"[ -]"
 
 class Regex():
-    """Almacena expresiones regulares para poder ser utilizadas en la búsqueda dentro de archivos"""
+    """Almacena expresiones regulares para poder ser utilizadas en la busqueda dentro de archivos"""
     _pattern = ""
 
     def __init__(self):

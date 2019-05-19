@@ -14,8 +14,8 @@
                     {{caso_nombre|truncatechars:8}}
                 {% endif %}
                 </h1>
-                <button id="arrow-left" title="Búsqueda general" class="btn int-left flechas" style="left:1.5rem" onclick="location.href='{% url 'buscador_general' caso_id=caso_id %}'"><i class="fas fa-search"></i></button>
-                <button id="arrow-right" title="Búsqueda guiada" class="btn int-right flechas" style="left:83%" onclick="location.href='{% url 'buscador_guiado' tipo='Búsqueda' caso_id=caso_id %}'"><i class="far fa-compass"></i></button>
+                <button id="arrow-left" title="busqueda general" class="btn int-left flechas" style="left:1.5rem" onclick="location.href='{% url 'buscador_general' caso_id=caso_id %}'"><i class="fas fa-search"></i></button>
+                <button id="arrow-right" title="busqueda guiada" class="btn int-right flechas" style="left:83%" onclick="location.href='{% url 'buscador_guiado' tipo='busqueda' caso_id=caso_id %}'"><i class="far fa-compass"></i></button>
                 <p id="caso">Buscador inteligente</p>
             </div>
             <button id="pers" class="btn botones" style="margin-top:0rem;" onclick="location.href='{% url 'buscador_inteligente' tipo=pers caso_id=caso_id %}';">Personas</button>
@@ -27,19 +27,19 @@
                 <button id="drog" class="btn botones" onclick="location.href='{% url 'buscador_inteligente' tipo=econ caso_id=caso_id %}';">Económicos</button>
             {% endif %}
             <button id="misc" class="btn botones" onclick="location.href='{% url 'buscador_inteligente' tipo=lex caso_id=caso_id %}';">Léxicos detectados</button>
-            {% if tipo != "Búsqueda" %}
+            {% if tipo != "busqueda" %}
                 {% if res|length != 0 %}
-                    {% if tipo != "Léxicos detectados" %}
-                        <button id="btn-save" form="guardar" type="submit" title="Guardar búsqueda" class="btn botones2" data-toggle="modal" data-target="#modalAdvice2" style="margin-left:9% !important"><i class="fas fa-save"></i></button>
+                    {% if tipo != "Lexicos detectados" %}
+                        <button id="btn-save" form="guardar" type="submit" title="Guardar busqueda" class="btn botones2" data-toggle="modal" data-target="#modalAdvice2" style="margin-left:9% !important"><i class="fas fa-save"></i></button>
                         <button id="btn-trash" title="Eliminar incorrectos" class="btn botones2" data-toggle="modal" data-target="#modalAdvice"><i class="far fa-trash-alt"></i></button>
                     {% else %}
-                        <button id="btn-save2" title="Guardar búsqueda" class="btn botones" data-toggle="modal" data-target="#modalAdvice2"><i class="fas fa-save"></i></button>
+                        <button id="btn-save2" title="Guardar busqueda" class="btn botones" data-toggle="modal" data-target="#modalAdvice2"><i class="fas fa-save"></i></button>
                     {% endif %}
                 {% endif %}
             {% endif %}
         </div>
 
-        {% if tipo != "Léxicos detectados" %}
+        {% if tipo != "Lexicos detectados" %}
             <div class="col-md-8">
                 <div id="jumbocenter" class="jumbotron">
                     <div id="cabeza">
@@ -47,7 +47,7 @@
                             <div class="col-md-5">
                                 <h2 id="titulo2">{{tipo}}</h2>
                             </div>
-                            {% if tipo != "Búsqueda" %} 
+                            {% if tipo != "busqueda" %} 
                                 <div class="col-md-7">
                                     <div class="col-md-offset-2 col-md-2">
                                         <p class="head" style="margin-left:2rem">Destacar </p>
@@ -98,7 +98,7 @@
                                 </div>
                             </div>
                         {% empty %}
-                            {% if tipo != "Búsqueda" %} 
+                            {% if tipo != "busqueda" %} 
                                 <p class="vacio">No hay ninguna coincidencia</p>
                             {% endif %}
                         {% endfor %}
@@ -115,7 +115,7 @@
                             <div class="col-md-4">
                                 <h2 id="titulo2">{{tipo}}</h2>
                             </div>
-                            {% if tipo != "Búsqueda" %} 
+                            {% if tipo != "busqueda" %} 
                                 <div class="col-md-7">
                                     <div class="col-md-offset-1 col-md-2">
                                         <p class="head" style="margin-left:2rem">Destacar </p>
@@ -163,7 +163,7 @@
                                 </div>
                             </div>
                         {% empty %}
-                            {% if tipo != "Búsqueda" %} 
+                            {% if tipo != "busqueda" %} 
                                 <p class="vacio">No hay ninguna coincidencia</p>
                             {% endif %}
                         {% endfor %}
