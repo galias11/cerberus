@@ -1,5 +1,5 @@
 # @Resources
-from nlp_model_gen.packages import NLPModelAdmin
+from nlp_model_gen import NLPModelAdmin
 
 nlp_admin = NLPModelAdmin()
 nlp_admin.import_model('modelo_drogas')
