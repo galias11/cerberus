@@ -337,3 +337,6 @@ documentos
 
 # VirtualEnv
 venv
+
+#static
+/static

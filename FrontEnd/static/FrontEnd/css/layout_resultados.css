@@ -1,7 +1,3 @@
-.fuente {
-    font-size: 20px !important;
-}
-
 body.modal-open, .modal-open .navbar-fixed-top, .modal-open .navbar-fixed-bottom {
     margin-right: 0 !important;
 }
@@ -68,7 +64,7 @@ body.modal-open, .modal-open .navbar-fixed-top, .modal-open .navbar-fixed-bottom
 }
 
 .detalles {
-    font-size: 14px !important;
+    font-size: 14px;
 }
 
 #ver_documento {
