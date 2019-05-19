@@ -54,9 +54,9 @@
                                 <div class="col-md-5">
                                     <div class="botones_moverindex">
                                         <div class="jumbocenter" style="margin-left:0!important">
-                                            <span title="Búsqueda guiada" class="buscar buscar_guiada"><a href="{% url 'buscador_guiado' tipo='Búsqueda' caso_id=caso.id %}"><i class="far fa-compass" style="font-size:32px"></i></a></span>
-                                            <span title="Búsqueda general" class="buscar buscar_general"><a href="{% url 'buscador_general' caso_id=caso.id %}"><i class="fas fa-search" style="font-size:29px"></i></a></span>
-                                            <span title="Búsqueda inteligente" class="buscar buscar_intel"><a href="{% url 'buscador_inteligente' tipo='Búsqueda' caso_id=caso.id%}"><i class="fas fa-brain" style="font-size:29px"></i></a></span>
+                                            <span title="busqueda guiada" class="buscar buscar_guiada"><a href="{% url 'buscador_guiado' tipo='busqueda' caso_id=caso.id %}"><i class="far fa-compass" style="font-size:32px"></i></a></span>
+                                            <span title="busqueda general" class="buscar buscar_general"><a href="{% url 'buscador_general' caso_id=caso.id %}"><i class="fas fa-search" style="font-size:29px"></i></a></span>
+                                            <span title="busqueda inteligente" class="buscar buscar_intel"><a href="{% url 'buscador_inteligente' tipo='busqueda' caso_id=caso.id%}"><i class="fas fa-brain" style="font-size:29px"></i></a></span>
                                         </div>
                                         <span title="Notas" class="btn btn-nota-index" ><a href="{% url 'notas' id=caso.id  tipo='caso' %}"><i class="fas fa-sticky-note" style="font-size:29px"></i></a></span>
                                         {% if user == caso.propietario %}

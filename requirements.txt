@@ -4,3 +4,4 @@ django-bootstrap4
 django-simple-history
 python-docx
 nlp_model_gen
+wfastcgi

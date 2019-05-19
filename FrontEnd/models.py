@@ -41,7 +41,7 @@ class Caso(models.Model):
     #Si el caso está finalizado incorrectamente o no
     finalizado_incorrecto = models.BooleanField()
 
-    #Modelo que se utilizará a lo largo del caso para hacer las búsquedas inteligentes
+    #Modelo que se utilizará a lo largo del caso para hacer las busquedas inteligentes
     MODEL_CHOICES = [('ECON','Económico'),('DRUG','Drogas')]
     modelo = models.CharField(max_length=10, choices=MODEL_CHOICES, default='ECON')
 
@@ -266,24 +266,24 @@ class NotaCaso(Nota):
     entidad = models.ForeignKey(Caso)
 
 class ResultadoHeader(models.Model):
-    """Entidad que almacena el header de resultado parcial de búsqueda"""
+    """Entidad que almacena el header de resultado parcial de busqueda"""
 
     #Fecha en la cuál se guardó
     fecha = models.DateTimeField(auto_now_add=True)
 
-    #Caso al que pertence la búsqueda
+    #Caso al que pertence la busqueda
     caso = models.ForeignKey(Caso)
 
-    #Tipo de búsqueda guardada (general/guiada/inteligente)
+    #Tipo de busqueda guardada (general/guiada/inteligente)
     busqueda = models.CharField(max_length=15)
 
-    #Parámetro por el cuál se realizo la búsqueda
+    #Parámetro por el cuál se realizo la busqueda
     tipo = models.CharField(max_length=15)
 
     #Estado actual del resultado respecto al caso (True=actualizado/False=no actualizado)
     estado = models.BooleanField()
 
-    #Documentos asociados al caso en el momento exacto en que se hizo la búsqueda
+    #Documentos asociados al caso en el momento exacto en que se hizo la busqueda
     documentos = models.ManyToManyField(Documento)
 
     #Usuario que general el resultado
@@ -295,7 +295,7 @@ class ResultadoHeader(models.Model):
     history = HistoricalRecords()
 
 class ResultadoBusqGeneral(models.Model):
-    """Entidad que almacena la información de cada item de un resultado de búsqueda inteligente"""
+    """Entidad que almacena la información de cada item de un resultado de busqueda inteligente"""
     
     #Campo destacado del resultado
     destacado = models.BooleanField()
@@ -321,7 +321,7 @@ class ResultadoBusqGeneral(models.Model):
     history = HistoricalRecords()
 
 class ResultadoBusqInteligente(models.Model):
-    """Entidad que almacena la información de cada item de un resultado de búsqueda inteligente"""
+    """Entidad que almacena la información de cada item de un resultado de busqueda inteligente"""
     
     #Campo destacado del resultado
     destacado = models.BooleanField()
@@ -353,7 +353,7 @@ class ResultadoBusqInteligente(models.Model):
     history = HistoricalRecords()
 
 class ResultadoBusqInteligenteTokens(models.Model):
-    """Entidad que almacena la información de cada item de un resultado de búsqueda inteligente"""
+    """Entidad que almacena la información de cada item de un resultado de busqueda inteligente"""
     
     #Campo destacado del resultado
     destacado = models.BooleanField()
@@ -388,7 +388,7 @@ class ResultadoBusqInteligenteTokens(models.Model):
     history = HistoricalRecords()
 
 class ResultadoBusqGuiadaGeneral(models.Model):
-    """Entidad que almacena la información de la clave de cada item de un resultado de búsqueda guiada"""
+    """Entidad que almacena la información de la clave de cada item de un resultado de busqueda guiada"""
 
     #Clave del resultado
     clave = models.CharField(max_length=200)
@@ -423,7 +423,7 @@ class ResultadoBusqGuiada(models.Model):
     #Texto del párrafo
     parrafo = models.TextField()
 
-    #Búsqueda guiada general correspondiente
+    #busqueda guiada general correspondiente
     general = models.ForeignKey(ResultadoBusqGuiadaGeneral)
 
     history = HistoricalRecords()
@@ -437,7 +437,7 @@ class Informe(models.Model):
     #Usuario que general el informe
     propietario = models.ForeignKey(User, related_name="propietario_informe")
 
-    #Tipo de búsqueda guardada (general/guiada/inteligente)
+    #Tipo de busqueda guardada (general/guiada/inteligente)
     busqueda = models.CharField(max_length=15)
 
     #Fecha en la cual se genero el informe
