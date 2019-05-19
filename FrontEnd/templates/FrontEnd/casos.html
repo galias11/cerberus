@@ -25,9 +25,9 @@
                                 <input class="checkboxes" name="checks[]" value="{{caso.id}}" type="checkbox"> 
                                 <div class="botones_mover">
                                     <div class="jumbocenter">
-                                        <span title="Búsqueda guiada" class="buscar btns-casos buscar_guiada"><a href="{% url 'buscador_guiado' tipo='Búsqueda' caso_id=caso.id %}"><i class="far fa-compass" style="font-size:32px"></i></a></span>
-                                        <span title="Búsqueda general" class="buscar btns-casos buscar_general"><a href="{% url 'buscador_general' caso_id=caso.id %}"><i class="fas fa-search" style="font-size:29px"></i></a></span>
-                                        <span title="Búsqueda inteligente" class="buscar btns-casos buscar_intel"><a href="{% url 'buscador_inteligente' tipo='Búsqueda' caso_id=caso.id%}"><i class="fas fa-brain" style="font-size:29px"></i></a></span>
+                                        <span title="busqueda guiada" class="buscar btns-casos buscar_guiada"><a href="{% url 'buscador_guiado' tipo='busqueda' caso_id=caso.id %}"><i class="far fa-compass" style="font-size:32px"></i></a></span>
+                                        <span title="busqueda general" class="buscar btns-casos buscar_general"><a href="{% url 'buscador_general' caso_id=caso.id %}"><i class="fas fa-search" style="font-size:29px"></i></a></span>
+                                        <span title="busqueda inteligente" class="buscar btns-casos buscar_intel"><a href="{% url 'buscador_inteligente' tipo='busqueda' caso_id=caso.id%}"><i class="fas fa-brain" style="font-size:29px"></i></a></span>
                                     </div>
                                     <button title="Documentos" type="button" class="btn btn-documentos2 botones_panel2" onclick="location.href='{% url 'documentos_caso' caso_id=caso.id destino=destino_documentos%}';"><i class="fas fa-file" style="font-size:29px"></i></button>
                                     <button title="Resultados" type="button" class="btn btn-resultados2 botones_panel2" onclick="location.href='{% url 'resultados_caso' caso_id=caso.id destino=destino_resultados%}';"><i class="far fa-file-alt" style="font-size:29px"></i></button>
@@ -231,7 +231,7 @@
             if (modelo == "DRUG")
                 $('#modelo').html('Drogas')
             else if (modelo == "ECON")
-                $('#modelo').html('Económicos')
+                $('#modelo').html('Economicos')
         })
     </script>
 {% endblock scripts %}

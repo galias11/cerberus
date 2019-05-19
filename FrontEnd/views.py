@@ -682,19 +682,19 @@ def crear_nota(request, id_caso):
 #*********************************************************************************************************************************************************************
 
 #*********************************************************************************************************************************************************************
-#**************************************************************************************START BÚSQUEDAS ***************************************************************
+#**************************************************************************************START busquedaS ***************************************************************
 #*********************************************************************************************************************************************************************
 
 @login_required
 def buscador_general(request,caso_id):
-    """Genera la vista para las búsquedas generales"""
+    """Genera la vista para las busquedas generales"""
 
     caso = Caso.objects.get(id=caso_id)
     context = {"caso":caso,
                'title':'Buscador general',
                }
     if request.method != "POST":
-        #Solicita la página de búsqueda
+        #Solicita la página de busqueda
         form = BuscadorGeneralForm()    
     else:
         #Busca en los documentos y retorna las apariciones
@@ -737,13 +737,13 @@ def posiciones(parrafo,palabra):
     
 @login_required
 def buscador_inteligente(request,tipo,caso_id):
-    """Genera la vista para las búsquedas inteligentes"""
+    """Genera la vista para las busquedas inteligentes"""
 
     entidades_dic = {
             "Organizaciones":"ORG",
             "Locaciones":"LOC",
             "Personas":"PER",
-            "Búsqueda":"BUS",
+            "busqueda":"BUS",
             "Drogas":"DRUG",
             "Económicos":"ECON",
         }
@@ -761,16 +761,16 @@ def buscador_inteligente(request,tipo,caso_id):
                 "modelo":caso.modelo,
                 "org":"Organizaciones",
                 "loc":"Locaciones",
-                "lex":"Léxicos detectados",
+                "lex":"Lexicos detectados",
                 "pers":"Personas",
                 "drog":"Drogas",
-                "econ":"Económicos",
+                "econ":"Economicos",
                 "caso_id":caso.id,
                 'title':'Buscador inteligente',
                 }
     documentos = caso.documento_set.all().order_by('-fecha_agregado')
     resultado = []
-    if tipo == "Léxicos detectados":
+    if tipo == "Lexicos detectados":
         for documento in documentos:
             tokens = TokensDoc.objects.filter(doc=documento).filter(eliminado=False)
             for t in tokens:
@@ -789,13 +789,13 @@ def buscador_inteligente(request,tipo,caso_id):
 
 @login_required
 def buscador_guiado(request,tipo,caso_id):
-    """Genera la vista para búsquedas guiadas"""
+    """Genera la vista para busquedas guiadas"""
 
     expresiones_reg = {
             "Email": RegexEmail(),
             "Documento": RegexDocumento(),
             "Tarjeta": RegexTarjeta(),
-            "Teléfono": RegexTelefono(),
+            "Telefono": RegexTelefono(),
             "URL": RegexUrl(),
         }
     caso = Caso.objects.get(id=caso_id)
@@ -805,7 +805,7 @@ def buscador_guiado(request,tipo,caso_id):
                    "email":"Email",
                    "dni":"Documento",
                    "tarjeta":"Tarjeta",
-                   "telefono":"Teléfono",
+                   "telefono":"Telefono",
                    "url": "URL",
                    "caso_id":caso.id,
                    'title':'Buscador guiado',
@@ -839,7 +839,7 @@ def buscar_regex(tipo, caso, expresiones_reg):
     return resultados
 
 def guardar_resultadoGeneral(request,caso_id,expresion):
-    """Guarda resultados de búsquedaa general"""
+    """Guarda resultados de busquedaa general"""
     if request.method == "POST":
         form = BuscadorGeneralForm()
         resultado_json = request.POST.get("resultado_json")
@@ -874,7 +874,7 @@ def guardar_resultadoGeneral(request,caso_id,expresion):
     return HttpResponseRedirect(reverse('buscador_general',args=[caso_id]))
 
 def guardar_resultadoGuiado(request,tipo,caso_id):
-    """Guarda resultados de búsqueda guiada"""
+    """Guarda resultados de busqueda guiada"""
     if request.method == "POST":
         resultado_json = request.POST.get("resultado_json")
         resultado = json.loads(resultado_json)
@@ -891,7 +891,7 @@ def guardar_resultadoGuiado(request,tipo,caso_id):
                    "email":"Email",
                    "dni":"Documento",
                    "tarjeta":"Tarjeta",
-                   "telefono":"Teléfono",
+                   "telefono":"Telefono",
                    "url": "URL",
                    "caso_id":caso.id,
                    "res": resultado,
@@ -916,7 +916,7 @@ def guardar_resultadoGuiado(request,tipo,caso_id):
 
 
 def guardar_resultadoInteligente(request,tipo,caso_id):
-    """Guarda resultados de búsqueda inteligente"""
+    """Guarda resultados de busqueda inteligente"""
     if request.method == "POST":
         resultado_json = request.POST.get("resultado_json")
         resultado = json.loads(resultado_json)
@@ -928,10 +928,10 @@ def guardar_resultadoInteligente(request,tipo,caso_id):
                    "modelo":caso.modelo,
                    "org":"Organizaciones",
                    "loc":"Locaciones",
-                   "lex":"Léxicos detectados",
+                   "lex":"Lexicos detectados",
                    "pers":"Personas",
                    "drog":"Drogas",
-                   "econ":"Económicos",
+                   "econ":"Economicos",
                    "title":'Buscador inteligente',
                    "caso_id":caso.id,
                    "res":resultado,
@@ -943,7 +943,7 @@ def guardar_resultadoInteligente(request,tipo,caso_id):
             resultado_header.documentos.add(d)
         resultado_header.save()
         for item in resultado:
-            if tipo != "Léxicos detectados":
+            if tipo != "Lexicos detectados":
                 entidad = EntidadesDoc.objects.get(id=item[7])
                 resultadoInt = ResultadoBusqInteligente(doc=entidad.doc,string=entidad.string,string_original=entidad.string_original,start=entidad.start,end=entidad.end,parrafo_nro=entidad.parrafo.nro,parrafo=entidad.parrafo.parrafo,header=resultado_header)
                 id = item[7] 
@@ -973,7 +973,7 @@ def editar_entidad(request,tipo,id_ent,id_caso):
 
 
 #*********************************************************************************************************************************************************************
-#**************************************************************************************END BÚSQUEDAS *****************************************************************
+#**************************************************************************************END busquedaS *****************************************************************
 #*********************************************************************************************************************************************************************
 
 #*********************************************************************************************************************************************************************
@@ -1000,7 +1000,7 @@ def generar_resultados(request,id_caso):
 
 @login_required
 def resultados(request):
-    """Resultados de las búsquedas"""
+    """Resultados de las busquedas"""
     form_elegir = BuscadorCasosForm(request.user)
     context = {
                 'form_elegir':form_elegir,
@@ -1051,7 +1051,7 @@ def eliminar_general_resultado(resultado_id,tipo):
 
 @login_required
 def eliminar_resultado(request,caso_id,resultado_id,tipo):
-    """Elimina resultado de búsqueda"""
+    """Elimina resultado de busqueda"""
 
     eliminar_general_resultado(resultado_id,tipo)
 
@@ -1069,7 +1069,7 @@ def eliminar_resultado(request,caso_id,resultado_id,tipo):
 
 @login_required
 def eliminar_resultadoCaso(request,caso_id,resultado_id,tipo):
-    """Elimina resultado de búsqueda"""
+    """Elimina resultado de busqueda"""
 
     eliminar_general_resultado(resultado_id,tipo)
     resultados = generar_resultados(request,caso_id)
@@ -1083,9 +1083,9 @@ def eliminar_resultadoCaso(request,caso_id,resultado_id,tipo):
 
 @login_required
 def ver_resultado(request,resultado_id,tipo):
-    """Ver resultados específicos asociados a una búsqueda"""
+    """Ver resultados específicos asociados a una busqueda"""
 
-    lexicos = "Léxicos detectados"
+    lexicos = "Lexicos detectados"
     resultado = ResultadoHeader.objects.get(id=resultado_id)
     context = {
                 'header':resultado,
@@ -1151,9 +1151,9 @@ def crearInforme(request,resultado_id,tipo_informe):
     font = style.font
     font.name = 'Arial'
 
-    document.add_heading('Informe de búsqueda',0)
+    document.add_heading('Informe de busqueda',0)
 
-    busq = f'Búsqueda {busqueda}'
+    busq = f'busqueda {busqueda}'
     p_usuario = document.add_paragraph('Usuario: ')
     p_usuario.add_run(request.user.username).italic = True
     paragraph_format = p_usuario.paragraph_format
@@ -1165,7 +1165,7 @@ def crearInforme(request,resultado_id,tipo_informe):
     p.add_run('.')
     p.style.font.size = Pt(13)
     
-    p2 = document.add_paragraph('Fecha de búsqueda: ')
+    p2 = document.add_paragraph('Fecha de busqueda: ')
     p2.add_run(str(resultado.fecha.strftime("%d-%m-%Y %H:%M:%S")))
 
     p3 = document.add_paragraph('Las apariciones en ')

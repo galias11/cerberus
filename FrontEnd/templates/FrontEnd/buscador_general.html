@@ -7,8 +7,8 @@
     <div class="row" style="margin-top: 4rem; height: 85%; width: 100%">
         <div class="col-md-3" style="margin-left:2rem">
             <div id="jumboside" class="jumbotron" style="margin-bottom:0 !important">
-                <button id="arrow-left" style="top:12.3rem" title="Búsqueda guiada" class="btn flechas" onclick="location.href='{% url 'buscador_guiado' tipo='Búsqueda' caso_id=caso.id %}'"><i class="far fa-compass"></i></button>
-                <button id="arrow-right" title="Búsqueda inteligente" class="btn flechas" onclick="location.href='{% url 'buscador_inteligente' tipo='Búsqueda' caso_id=caso.id%}'"><i class="fas fa-brain" ></i></button>
+                <button id="arrow-left" style="top:12.3rem" title="busqueda guiada" class="btn flechas" onclick="location.href='{% url 'buscador_guiado' tipo='busqueda' caso_id=caso.id %}'"><i class="far fa-compass"></i></button>
+                <button id="arrow-right" title="busqueda inteligente" class="btn flechas" onclick="location.href='{% url 'buscador_inteligente' tipo='busqueda' caso_id=caso.id%}'"><i class="fas fa-brain" ></i></button>
                 {% if caso.nombre|length < 10 %}
                     <h1 id="titulo" title="{{caso.nombre}}">{{caso.nombre}}</h1>
                 {% else %}
@@ -37,7 +37,7 @@
                         <button id="botonBuscar" form="buscar" title="Buscar" class="btn btn-block" type="submit" >Buscar</button>
                     {% else %}
                         {% if res|length != 0 %}    
-                            <button id="btn-save" form="guardar" type="submit" title="Guardar búsqueda" class="btn botones3" data-toggle="modal" data-target="#modalAdvice"><i class="fas fa-save"></i></button>
+                            <button id="btn-save" form="guardar" type="submit" title="Guardar busqueda" class="btn botones3" data-toggle="modal" data-target="#modalAdvice"><i class="fas fa-save"></i></button>
                             <button id="btn-buscar" form="buscar" title="Buscar" class="btn botones3" style="margin-left:2% !important" type="submit" >Buscar</button>
                         {% else %}
                             <button id="botonBuscar" form="buscar" title="Buscar" class="btn btn-block" type="submit" >Buscar</button>

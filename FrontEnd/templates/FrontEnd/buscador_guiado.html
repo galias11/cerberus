@@ -7,8 +7,8 @@
     <div class="row" style="margin-top: 4rem; height: 85%; width: 100%">
         <div class="col-md-3" style="margin-left:2rem">
             <div id="jumboside" class="jumbotron">
-                <button id="arrow-left" title="Búsqueda inteligente" class="btn flechas" onclick="location.href='{% url 'buscador_inteligente' tipo='Búsqueda' caso_id=caso_id%}'"><i class="fas fa-brain"></i></button>
-                <button id="arrow-right" title="Búsqueda general" class="btn flechas" onclick="location.href='{% url 'buscador_general' caso_id=caso_id %}'"><i class="fas fa-search"></i></button>
+                <button id="arrow-left" title="busqueda inteligente" class="btn flechas" onclick="location.href='{% url 'buscador_inteligente' tipo='busqueda' caso_id=caso_id%}'"><i class="fas fa-brain"></i></button>
+                <button id="arrow-right" title="busqueda general" class="btn flechas" onclick="location.href='{% url 'buscador_general' caso_id=caso_id %}'"><i class="fas fa-search"></i></button>
                 <h1 id="titulo" title="{{caso_nombre}}">
                 {% if caso_nombre|length < 10 %}
                     {{caso_nombre}}
@@ -23,9 +23,9 @@
             <button id="tarjeta" class="btn botones" onclick="location.href='{% url 'buscador_guiado' tipo=tarjeta caso_id=caso_id %}';">Tarjeta de crédito/ débito</button>
             <button id="dni" class="btn botones" onclick="location.href='{% url 'buscador_guiado' tipo=dni caso_id=caso_id %}';">Número de documento</button>
             <button id="telefono" class="btn botones" onclick="location.href='{% url 'buscador_guiado' tipo=telefono caso_id=caso_id %}';">Teléfono</button>
-            {% if tipo != "Búsqueda" %}
+            {% if tipo != "busqueda" %}
                 {% if res.items|length != 0 %}
-                    <button id="btn-save2" title="Guardar búsqueda" class="btn botones" data-toggle="modal" data-target="#modalAdvice"><i class="fas fa-save"></i></button>
+                    <button id="btn-save2" title="Guardar busqueda" class="btn botones" data-toggle="modal" data-target="#modalAdvice"><i class="fas fa-save"></i></button>
                 {% endif %}
             {% endif %}
         </div>
@@ -37,7 +37,7 @@
                         <div class="col-md-4">
                             <h2 id="titulo2">{{tipo}}</h2>
                         </div>
-                        {% if tipo != "Búsqueda" %} 
+                        {% if tipo != "busqueda" %} 
                             <div class="col-md-2 col-md-offset-1">
                                 <p class="cantidad" style="text-align:center; margin-left:3rem">Destacar</p>
                             </div>
@@ -92,7 +92,7 @@
                             </div>
                         </div>
                     {% empty %}
-                        {% if tipo != "Búsqueda" %} 
+                        {% if tipo != "busqueda" %} 
                             <p class="vacio">No hay ninguna coincidencia</p>
                         {% endif %}
                     {% endfor %}
