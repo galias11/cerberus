@@ -17,11 +17,6 @@
     width: 52rem !important;
 }
 
-#id_modelo {
-    max-width: none !important;
-    width: 52rem !important;
-}
-
 textarea {
     resize: none;
 }

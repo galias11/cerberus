@@ -9,15 +9,15 @@ input {
 #login-form {
     background-color: #e0e0e0;
     border-radius: 10px;
-    height: 46rem;
-    margin-top: 3%;
+    height: 40rem;
+    margin-top: 5%;
     margin-bottom: 5%;
     box-shadow: 5px 10px 18px #888888;
 }
 
 #button_login {
     position: relative;
-    top: 2rem;
+    top: 4.5rem;
     left: -0.5rem;
     height: 5rem;
     width: 25rem;
@@ -48,7 +48,8 @@ input {
 
 #title {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
 }
 
 #usuario {
