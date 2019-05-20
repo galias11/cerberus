@@ -10,13 +10,15 @@ echo data downloaded
 
 # setup app
 echo running app setup
+[ -x "$(command -v python3)" ] && PYTHON=python3 || PYTHON=python;
+[ -x "$(command -v pip3)" ] && PIP=pip3 || PIP=pip;
 cd cerberus
-pip install -r requirements.txt --no-cache
-python3 -m spacy download es_core_news_md
-python3 ./manage.py collectstatic
+$PIP install --ignore-installed -r requirements.txt
+$PYTHON -m spacy download es_core_news_md
+$PYTHON ./manage.py collectstatic
 cp ./scripts/config/web.main.config ../web.config
 cp ./scripts/config/web.static.config ./static/web.config
-python3 ./manage.py migrate
-python3 ./scripts/nlp_setup.py
-python3 manage.py createsuperuser
+$PYTHON ./manage.py migrate
+$PYTHON ./scripts/nlp_setup.py
 echo app setup successful
+$PYTHON manage.py createsuperuser
